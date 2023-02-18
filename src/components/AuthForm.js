@@ -1,12 +1,18 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { Alert } from "@mui/material";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const AuthForm = (props) => {
   const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isError, setIsError] = useState(false);
 
   const auth = getAuth();
 
@@ -14,7 +20,7 @@ const AuthForm = (props) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((credentials) => {
         const user = credentials.user;
-        console.log(user.uid)
+        console.log(user.uid);
       })
       .catch((err) => {
         console.error(err);
@@ -22,16 +28,25 @@ const AuthForm = (props) => {
   };
 
   const login = async () => {
-    signInWithEmailAndPassword(auth, email, password).then((credentials) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((credentials) => {
         const user = credentials.user;
-        console.log(user.uid)
-    }).catch((err) => {
-        console.error(err)
-    })
-  }
+        console.log(user.uid);
+      })
+      .catch((err) => {
+        setIsError(true);
+      });
+  };
 
   return (
     <>
+      {isError ? (
+        <Alert severity="error">
+          There was some error while processing your request.
+        </Alert>
+      ) : (
+        ""
+      )}
       <div className="flex mt-40 justify-center items-center">
         <div className="w-96 flex flex-col">
           <h2 className="text-3xl font-medium text-slate-800">
@@ -44,7 +59,7 @@ const AuthForm = (props) => {
             placeholder="eg: sushant@gmail.com"
             value={email}
             onChange={(input) => {
-              setEmail(input.target.value)
+              setEmail(input.target.value);
             }}
           />
 
@@ -59,9 +74,12 @@ const AuthForm = (props) => {
           />
 
           <div className="flex items-center justify-between text-blue-700">
-            <div className="border-2 bg-slate-900 text-white rounded-md text-center px-4 py-1 mt-4 cursor-pointer" onClick={() => {
-                location.pathname === '/' ? createAccount() : login() 
-            }}>
+            <div
+              className="border-2 bg-slate-900 text-white rounded-md text-center px-4 py-1 mt-4 cursor-pointer"
+              onClick={() => {
+                location.pathname === "/" ? createAccount() : login();
+              }}
+            >
               {location.pathname === "/" ? "Create" : "Login"}
             </div>
             <>
@@ -71,7 +89,7 @@ const AuthForm = (props) => {
                 </a>
               ) : (
                 <a href="/" className="mt-4">
-                  Forgot Password?
+                  <div onClick={() => {}}>Forgot Password?</div>
                 </a>
               )}
             </>

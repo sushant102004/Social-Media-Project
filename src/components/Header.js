@@ -10,9 +10,9 @@ const Header = () => {
                 Social Memories
             </h2>
             <ul className='flex text-slate-700 font-lexend mx-8'>
-                <li className='mx-4'><a href='https://google.com'>Home</a></li>
-                <li className='mx-4'><a href='https://google.com'>Sign Up</a></li>
-                <li className='mx-4'><a href='https://google.com'>Sign In</a></li>
+                <li className='mx-4'><a href='/'>Home</a></li>
+                <li className='mx-4'><a href='/'>Create Account</a></li>
+                <li className='mx-4'><a href='/login'>Login</a></li>
                 <li className='mx-4'><a href='https://linkedin.com/in/sushant102004'>LinkedIn</a></li>
             </ul>
             </div>

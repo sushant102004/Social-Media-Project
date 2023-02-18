@@ -1,9 +1,12 @@
 import React from 'react';
+import Header from '../components/Header';
+import AuthForm from '../components/AuthForm';
 
 function SingUp() {
     return (
         <>
-            <h2>Sign Up</h2>
+            <Header/>
+            <AuthForm/>
         </>
     )
 }

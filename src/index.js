@@ -5,8 +5,6 @@ import { initializeApp } from "firebase/app";
 
 import './index.css'
 import App from './App'
-import SignIn from './pages/SignIn'
-import SignUp from './pages/SignUp'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAxjYScVNs43SLC3YuB3iOlcju1NzctgPY",
@@ -24,14 +22,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <SignUp/>
-  },
-  {
-    path: '/login',
-    element: <SignIn/>
-  },
-  {
-    path: '/home',
     element: <App/>
   }
 ])

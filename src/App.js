@@ -1,9 +1,11 @@
 import React from "react"
 
+import Auth from "./components/auth"
+
 function App() {
   return (
     <>
-      <h2>Hello World</h2>
+      <Auth/>
     </>
   )
 }

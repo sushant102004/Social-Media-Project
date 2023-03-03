@@ -1,17 +1,23 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {
-      'tablet': '640px',
+      sm: "480px",
+      md: "768px",
+      lg: "1024px",
     },
+
     extend: {
       fontFamily: {
-        lexend: ["Lexend"]
-      }
+        lexend: ["Lexend"],
+      },
+      colors: {
+        "custom-bg": "#F4F1EB",
+        "custom-text-focused" : "#093731"
+      },
     },
   },
   plugins: [],
-}
+};

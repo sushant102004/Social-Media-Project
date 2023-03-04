@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
-import { CircularProgress, Snackbar } from "@mui/material";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -26,7 +25,6 @@ export default function SignUp() {
         await addDoc(collection(db, "users"), userDetails);
       })
       .catch(() => {
-        setErrorOccured(true);
       });
   }
 

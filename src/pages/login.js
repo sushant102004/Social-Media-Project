@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import Loader from "../components/Loader";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -55,6 +56,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <Loader/>
     </>
   );
 }

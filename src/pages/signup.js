@@ -31,7 +31,7 @@ export default function SignUp() {
   return (
     <>
       <div className="h-screen bg-custom-bg text-center pt-16">
-        <p className="text-custom-text-focused text-5xl">
+        <p className="text-custom-text-focused text-4xl lg:text-5xl">
           Welcome to Happy Memories
         </p>
         <p className="text-custom-text-focused text-lg pt-4">
@@ -39,7 +39,7 @@ export default function SignUp() {
         </p>
 
         {/* Auth Container */}
-        <div className="p-6 h-3/4 w-1/4 bg-slate-50 ml-auto mr-auto mt-8 rounded-xl border-2 border-slate-300">
+        <div className="p-6 h-2/3 ml-4 bg-slate-50 mr-4 mt-8 rounded-xl border-2 border-slate-300 lg:h-3/4 lg:w-1/4 lg:ml-auto lg:mr-auto">
           {/* Auth Selector */}
           <div className="flex ml-auto mr-auto w-56 h-12 bg-slate-50 border-2 border-slate-300 rounded-lg">
             <p className="m-auto bg-blue-800 pt-1 pb-1 pl-4 pr-4 rounded-md text-slate-100">

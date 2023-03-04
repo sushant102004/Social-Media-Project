@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 
 import './index.css'
 import App from './App'
+import Login from './pages/login';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAxjYScVNs43SLC3YuB3iOlcju1NzctgPY",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App/>
+  },
+  {
+    path: '/login',
+    element: <Login/>
   }
 ])
 

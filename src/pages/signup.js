@@ -31,7 +31,7 @@ export default function SignUp() {
   return (
     <>
       <div className="h-screen bg-custom-bg text-center pt-16">
-        <p className="text-custom-text-focused text-4xl lg:text-5xl">
+        <p className="text-custom-text-focused text-5xl lg:text-5xl">
           Welcome to Happy Memories
         </p>
         <p className="text-custom-text-focused text-lg pt-4">
@@ -49,21 +49,21 @@ export default function SignUp() {
               <a href="/login">Login</a>
             </p>
           </div>
-          <p className="text-left ml-2 mt-12 mb-2 text-slate-700">Name: </p>
+          <p className="text-left mt-12 mb-2 text-slate-700 lg:ml-2">Name: </p>
           <input
             className="focus:outline-0 bg-slate-50 border-2 rounded-md w-80 p-2"
             placeholder="Sushant Dhiman"
             value={name}
             onChange={(event) => setName(event.target.value)}
           ></input>
-          <p className="text-left ml-2 mt-6 mb-2 text-slate-700">Email: </p>
+          <p className="text-left mt-6 mb-2 text-slate-700 lg:ml-2">Email: </p>
           <input
             className="focus:outline-0 bg-slate-50 border-2 rounded-md w-80 p-2"
             placeholder="sushant@gmail.com"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           ></input>
-          <p className="text-left ml-2 mt-6 mb-2 text-slate-700">Password: </p>
+          <p className="text-left mt-6 mb-2 text-slate-700 lg:ml-2">Password: </p>
           <input
             className="focus:outline-0 bg-slate-50 border-2 rounded-md w-80 p-2"
             placeholder="aStrongPassword#"

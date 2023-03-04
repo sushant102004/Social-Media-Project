@@ -12,7 +12,7 @@ export default function Login() {
           </p>
           
           {/* Auth Container */}
-          <div className="p-6 h-3/5 w-1/4 bg-slate-50 ml-auto mr-auto mt-8 rounded-xl border-2 border-slate-300">
+          <div className="p-6 h-1/2 ml-4 bg-slate-50 mr-4 mt-8 rounded-xl border-2 border-slate-300 lg:h-3/5 lg:w-1/4 lg:ml-auto lg:mr-auto">
               {/* Auth Selector */}
               <div className = 'flex ml-auto mr-auto w-56 h-12 bg-slate-50 border-2 border-slate-300 rounded-lg'>
                   <p className = 'm-auto pt-1 pb-1 pl-4 pr-4 rounded-md text-slate-700'>

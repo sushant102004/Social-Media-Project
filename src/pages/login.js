@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import Loader from "../components/Loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -14,7 +15,9 @@ export default function Login() {
         const user = userCredentials.user;
         console.log(user);
       })
-      .catch(() => {});
+      .catch(() => {
+        toast.error("Email and password not valid.");
+      });
   }
 
   return (
@@ -47,16 +50,26 @@ export default function Login() {
           <input
             className="focus:outline-0 bg-slate-50 border-2 rounded-md w-80 p-2"
             placeholder="aStrongPassword#"
-            type='password'
+            type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           ></input>
-          <div className="flex m-auto  mt-6 bg-blue-800 rounded-md w-24 h-9 cursor-pointer" onClick={() => {login()}}>
+          <div
+            className="flex m-auto  mt-6 bg-blue-800 rounded-md w-24 h-9 cursor-pointer"
+            onClick={() => {
+              if(email.length === 0){
+                return toast.error('Email can\'t be empty.')
+              } else if(password.length === 0){
+                return toast.error('Password can\'t be empty.')
+              }
+              login();
+            }}
+          >
             <p className="text-slate-100 m-auto">Log In</p>
           </div>
         </div>
       </div>
-      <Loader/>
+      <ToastContainer />
     </>
   );
 }

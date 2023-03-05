@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -25,6 +26,7 @@ export default function SignUp() {
         await addDoc(collection(db, "users"), userDetails);
       })
       .catch(() => {
+        toast.error('Sign Up failed')
       });
   }
 
@@ -74,6 +76,14 @@ export default function SignUp() {
           <div
             className="flex m-auto  mt-6 bg-blue-800 rounded-md w-24 h-9 cursor-pointer"
             onClick={() => {
+              if(email.length === 0){
+                return toast.error('Email can\'t be empty')
+              } else if(password.length === 0){
+                return toast.error('Password can\'t be empty')
+              } else if(name.length === 0){
+                return toast.error('Name can\'t be empty')
+              }
+
               signUp();
             }}
           >
@@ -81,6 +91,7 @@ export default function SignUp() {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </>
   );
 }

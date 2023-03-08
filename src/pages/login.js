@@ -3,22 +3,28 @@ import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate()
 
   async function login() {
     const auth = getAuth();
     await signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredentials) => {
         const user = userCredentials.user;
-        console.log(user);
+        localStorage.setItem('email', user.email)
+        localStorage.setItem('uid', user.uid)
+        navigate('/home')
       })
       .catch(() => {
-        toast.error("Email and password not valid.");
+        return toast.error("Email and password not valid.");
       });
   }
+
 
   return (
     <>
@@ -62,7 +68,7 @@ export default function Login() {
               } else if(password.length === 0){
                 return toast.error('Password can\'t be empty.')
               }
-              login();
+              login()
             }}
           >
             <p className="text-slate-100 m-auto">Log In</p>

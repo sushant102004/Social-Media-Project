@@ -6,6 +6,9 @@ import { initializeApp } from "firebase/app";
 import './index.css'
 import App from './App'
 import Login from './pages/login';
+import Home from './pages/Home';
+import AddPost from './pages/AddPost';
+import Profile from './pages/Profile'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAxjYScVNs43SLC3YuB3iOlcju1NzctgPY",
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login/>
+  },
+  {
+    path: '/home',
+    element: <Home/>
+  },
+  {
+    path: '/add-post',
+    element: <AddPost/>
+  },
+  {
+    path: '/profile',
+    element: <Profile/>
   }
 ])
 

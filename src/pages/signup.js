@@ -3,11 +3,14 @@ import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate()
 
 
   async function signUp() {
@@ -24,9 +27,10 @@ export default function SignUp() {
           bio: "Hi I'm using happy memories.",
         };
         await addDoc(collection(db, "users"), userDetails);
+        navigate('/home')
       })
       .catch(() => {
-        toast.error('Sign Up failed')
+        return toast.error('Sign Up failed')
       });
   }
 
@@ -84,7 +88,8 @@ export default function SignUp() {
                 return toast.error('Name can\'t be empty')
               }
 
-              signUp();
+              signUp()
+              navigate('/home')
             }}
           >
             <p className="text-slate-100 m-auto">Sign Up</p>
